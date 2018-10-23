@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Finance Manager</string>
+
+    <string name="not_log_in">It could not sign in</string>
+    <string name="log_out">Log Out</string>
+    <string name="revoke">Revoke</string>
+    <string name="not_close_session">It could not log out</string>
+    <string name="not_revoke">It could not revoke the access</string>
+</resources>
