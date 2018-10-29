@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,21 +11,30 @@
         android:layout_height="137dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent" />
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="283dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/app_name"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoImageView" />
 
     <TextView
         android:id="@+id/emailTextView"
@@ -31,9 +42,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="225dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/app_name"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
 
     <TextView
@@ -43,9 +59,13 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="178dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/app_name"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
 
 
     <Button
@@ -54,11 +74,16 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="78dp"
-        android:onClick="logOut"
-        android:text="@string/log_out" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/log_out"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTextView"
+        app:layout_constraintVertical_bias="1.0" />
 
 
     <Button
@@ -67,11 +92,13 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="15dp"
-        android:onClick="revoke"
-        android:text="@string/revoke" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/revoke"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
