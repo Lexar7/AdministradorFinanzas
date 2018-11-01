@@ -24,7 +24,7 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
-public class PerfilFragment extends Fragment implements GoogleApiClient.OnConnectionFailedListener{
+public class PerfilFragment extends Fragment {
 
     private ImageView photoImageView;
     private TextView nameTextView;
@@ -38,130 +38,12 @@ public class PerfilFragment extends Fragment implements GoogleApiClient.OnConnec
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Defines the xml file for the fragment
-        View view =  inflater.inflate(R.layout.fragment_perfil, container, false);
+        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        // View view =  inflater.inflate(R.layout.fragment_perfil, container, false);
 
 
-        photoImageView = (ImageView) view.findViewById(R.id.photoImageView);
-        nameTextView = (TextView) view.findViewById(R.id.nameTextView);
-        emailTextView = (TextView) view.findViewById(R.id.emailTextView);
-        idTextView = (TextView) view.findViewById(R.id.idTextView);
-        btnCerraSesion = (Button)view.findViewById(R.id.button);
-        btnRevoke = (Button)view.findViewById(R.id.button2);
-
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-
-        googleApiClient = new GoogleApiClient.Builder(getActivity())
-                .enableAutoManage(getActivity(), this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
-
-        btnCerraSesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                        if (status.isSuccess()) {
-                            goLogInScreen();
-                        } else {
-                            Toast.makeText(getActivity(), R.string.not_close_session, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
-        });
-
-        btnRevoke.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Auth.GoogleSignInApi.revokeAccess(googleApiClient).setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                        if (status.isSuccess()) {
-                            goLogInScreen();
-                        } else {
-                            Toast.makeText(getActivity(), R.string.not_revoke, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
-        });
-
-
-        return view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
-        if (opr.isDone()) {
-            GoogleSignInResult result = opr.get();
-            handleSignInResult(result);
-        } else {
-            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
-                @Override
-                public void onResult(@NonNull GoogleSignInResult googleSignInResult) {
-                    handleSignInResult(googleSignInResult);
-                }
-            });
-        }
-    }
-
-    private void handleSignInResult(GoogleSignInResult result) {
-        if (result.isSuccess()) {
-
-            GoogleSignInAccount account = result.getSignInAccount();
-
-            nameTextView.setText(account.getDisplayName());
-            emailTextView.setText(account.getEmail());
-            idTextView.setText(account.getId());
-
-            Glide.with(this).load(account.getPhotoUrl()).into(photoImageView);
-
-        } else {
-            goLogInScreen();
-        }
-    }
-
-    private void goLogInScreen() {
-        Intent intent = new Intent(getActivity(), LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
-
-    public void logOut(View view) {
-        Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
-            @Override
-            public void onResult(@NonNull Status status) {
-                if (status.isSuccess()) {
-                    goLogInScreen();
-                } else {
-                    Toast.makeText(getActivity(), R.string.not_close_session, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
-    public void revoke(View view) {
-        Auth.GoogleSignInApi.revokeAccess(googleApiClient).setResultCallback(new ResultCallback<Status>() {
-            @Override
-            public void onResult(@NonNull Status status) {
-                if (status.isSuccess()) {
-                    goLogInScreen();
-                } else {
-                    Toast.makeText(getActivity(), R.string.not_revoke, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
+
 }

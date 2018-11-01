@@ -23,7 +23,7 @@ public class splash extends AppCompatActivity {
             public void run() {
                 finish();
                 if (!botonBackPresionado){
-                    Intent intento = new Intent(splash.this, LoginActivity.class);
+                    Intent intento = new Intent(splash.this, MainActivity.class);
                     startActivity(intento);
                 }
             }
