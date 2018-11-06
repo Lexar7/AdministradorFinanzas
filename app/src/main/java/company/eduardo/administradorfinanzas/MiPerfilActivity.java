@@ -22,10 +22,10 @@ import com.google.android.gms.common.api.Status;
 
 public class MiPerfilActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
-    private ImageView photoImageView;
-    private TextView nameTextView;
-    private TextView emailTextView;
-    private TextView idTextView;
+    public ImageView photoImageView;
+    public TextView nameTextView;
+    public TextView emailTextView;
+    public TextView idTextView;
 
     private GoogleApiClient googleApiClient;
 
