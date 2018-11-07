@@ -16,8 +16,7 @@ public class Presupuestos {
     @NonNull
     @ColumnInfo(name = "MesPresupuesto")
     private Double _mesPresupuesto;
-
-
+    
     public Presupuestos(@NonNull Double mesPresupuesto) {
         _mesPresupuesto = mesPresupuesto;
     }
