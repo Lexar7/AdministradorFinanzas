@@ -3,9 +3,15 @@ package company.eduardo.administradorfinanzas.DataContext.Entities;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverter;
+import android.arch.persistence.room.TypeConverters;
 import android.support.annotation.NonNull;
 
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
+
+import company.eduardo.administradorfinanzas.DataContext.DateTypeConverter;
 
 @Entity(tableName = "Cuentas")
 public class Cuentas {
@@ -29,15 +35,20 @@ public class Cuentas {
 
     @NonNull
     @ColumnInfo(name = "FechaCreacion")
-    private Date _fechaCreacion;
+    @TypeConverters(DateTypeConverter.class)
+    private Calendar _fechaCreacion;
 
-    public Cuentas(@NonNull String nombreCuenta, @NonNull Double saldoInicial, @NonNull Integer idCategoria, @NonNull Date fechaCreacion) {
+    public Cuentas(@NonNull String nombreCuenta, @NonNull Double saldoInicial, @NonNull Integer idCategoria, @NonNull Calendar fechaCreacion) {
         _nombreCuenta = nombreCuenta;
         _saldoInicial = saldoInicial;
         _idCategoria = idCategoria;
         _fechaCreacion = fechaCreacion;
     }
 
+
+    public void setIdCuenta(Integer _IdCuenta){
+        this._idCuenta = _IdCuenta;
+    }
 
     @NonNull
     public Integer getIdCuenta() {
@@ -60,7 +71,7 @@ public class Cuentas {
     }
 
     @NonNull
-    public Date getFechaCreacion() {
+    public Calendar getFechaCreacion() {
         return _fechaCreacion;
     }
 }

@@ -3,17 +3,21 @@ package company.eduardo.administradorfinanzas.DataContext.Entities;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
 import android.support.annotation.NonNull;
 
+import java.util.Calendar;
 import java.util.Date;
+
+import company.eduardo.administradorfinanzas.DataContext.DateTypeConverter;
 
 @Entity(tableName = "Salidas")
 public class Salidas {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    @ColumnInfo(name = "IdCuenta")
-    private Integer _idEntrada;
+    @ColumnInfo(name = "IdSalidas")
+    private Integer _idSalida;
 
     @NonNull
     @ColumnInfo(name = "Descripcion")
@@ -25,7 +29,8 @@ public class Salidas {
 
     @NonNull
     @ColumnInfo(name = "Fecha")
-    private Date _fecha;
+    @TypeConverters(DateTypeConverter.class)
+    private Calendar _fecha;
 
     @NonNull
     @ColumnInfo(name = "IdCategoria")
@@ -36,7 +41,7 @@ public class Salidas {
     private Integer _idCuenta;
 
 
-    public Salidas(@NonNull String descripcion, @NonNull Double saldo, @NonNull Date fecha, @NonNull Integer idCategoria, @NonNull Integer idCuenta) {
+    public Salidas(@NonNull String descripcion, @NonNull Double saldo, @NonNull Calendar fecha, @NonNull Integer idCategoria, @NonNull Integer idCuenta) {
         _descripcion = descripcion;
         _saldo = saldo;
         _fecha = fecha;
@@ -44,10 +49,13 @@ public class Salidas {
         _idCuenta = idCuenta;
     }
 
+    public void set_idSalida(@NonNull Integer _idSalida){
+        this._idSalida = _idSalida;
+    }
 
     @NonNull
-    public Integer getIdEntrada() {
-        return _idEntrada;
+    public Integer getIdSalida() {
+        return _idSalida;
     }
 
     @NonNull
@@ -61,7 +69,7 @@ public class Salidas {
     }
 
     @NonNull
-    public Date getFecha() {
+    public Calendar getFecha() {
         return _fecha;
     }
 
