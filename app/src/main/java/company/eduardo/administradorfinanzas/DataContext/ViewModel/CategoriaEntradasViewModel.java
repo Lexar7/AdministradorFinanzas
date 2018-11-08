@@ -24,9 +24,7 @@ public class CategoriaEntradasViewModel  extends AndroidViewModel {
 
     public LiveData<List<CategoriaEntradas>> getAll() { return listLiveData; }
 
-    public LiveData<CategoriaEntradas> getOne(int Id) {
-        return repository.getOne(Id);
-    }
+    public LiveData<CategoriaEntradas> getOne(int Id) { return repository.getOne(Id); }
 
     public void insert(CategoriaEntradas categoriaEntradas) { repository.insert(categoriaEntradas); }
 
