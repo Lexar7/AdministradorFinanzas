@@ -1,0 +1,317 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "16726d422e837a824493de36074d3939",
+    "entities": [
+      {
+        "tableName": "CategoriaEntradas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`IdCategoria` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Name` TEXT NOT NULL, `Image` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "_idCategoria",
+            "columnName": "IdCategoria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_image",
+            "columnName": "Image",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "IdCategoria"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "CategoriaSalidas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`IdCategoria` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Name` TEXT NOT NULL, `Image` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "_idCategoria",
+            "columnName": "IdCategoria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_image",
+            "columnName": "Image",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "IdCategoria"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "CategoriasCuentas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`IdCategoria` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Name` TEXT NOT NULL, `Image` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "_idCategoria",
+            "columnName": "IdCategoria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_image",
+            "columnName": "Image",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "IdCategoria"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Cuentas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`IdCuenta` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `NombreCuenta` TEXT NOT NULL, `SaldoInicial` REAL NOT NULL, `IdCategoria` INTEGER NOT NULL, `FechaCreacion` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "_idCuenta",
+            "columnName": "IdCuenta",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_nombreCuenta",
+            "columnName": "NombreCuenta",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_saldoInicial",
+            "columnName": "SaldoInicial",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_idCategoria",
+            "columnName": "IdCategoria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_fechaCreacion",
+            "columnName": "FechaCreacion",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "IdCuenta"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Entradas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`IdEntrada` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Descripcion` TEXT NOT NULL, `Saldo` REAL NOT NULL, `Fecha` TEXT NOT NULL, `IdCategoria` INTEGER NOT NULL, `IdCuenta` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "_idEntrada",
+            "columnName": "IdEntrada",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_descripcion",
+            "columnName": "Descripcion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_saldo",
+            "columnName": "Saldo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_fecha",
+            "columnName": "Fecha",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_idCategoria",
+            "columnName": "IdCategoria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_idCuenta",
+            "columnName": "IdCuenta",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "IdEntrada"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Presupuestos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`IdPresupuesto` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `MesPresupuesto` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "_idPresupuesto",
+            "columnName": "IdPresupuesto",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_mesPresupuesto",
+            "columnName": "MesPresupuesto",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "IdPresupuesto"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Salidas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`IdSalidas` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Descripcion` TEXT NOT NULL, `Saldo` REAL NOT NULL, `Fecha` TEXT NOT NULL, `IdCategoria` INTEGER NOT NULL, `IdCuenta` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "_idSalida",
+            "columnName": "IdSalidas",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_descripcion",
+            "columnName": "Descripcion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_saldo",
+            "columnName": "Saldo",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_fecha",
+            "columnName": "Fecha",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_idCategoria",
+            "columnName": "IdCategoria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_idCuenta",
+            "columnName": "IdCuenta",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "IdSalidas"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "SalidasPresupuesto",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`IdSalidaPresupuesto` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `IdPresupuesto` INTEGER NOT NULL, `IdCategoria` INTEGER NOT NULL, `Saldo` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "_idSalidaPresupuesto",
+            "columnName": "IdSalidaPresupuesto",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_idPresupuesto",
+            "columnName": "IdPresupuesto",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_idCategoria",
+            "columnName": "IdCategoria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "_saldo",
+            "columnName": "Saldo",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "IdSalidaPresupuesto"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"16726d422e837a824493de36074d3939\")"
+    ]
+  }
+}

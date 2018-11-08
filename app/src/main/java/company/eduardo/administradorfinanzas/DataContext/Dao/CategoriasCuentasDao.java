@@ -9,6 +9,7 @@ import android.arch.persistence.room.Update;
 
 import java.util.List;
 
+import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriaSalidas;
 import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriasCuentas;
 
 @Dao
