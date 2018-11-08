@@ -20,7 +20,9 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".MiPerfilActivity" />
         <activity android:name=".CrearCategorias" />
-        <activity android:name=".CrearCuentas"></activity>
+        <activity android:name=".CrearCuentas" />
+        <activity android:name=".CrearCategoriaEntradas" />
+        <activity android:name=".CrearCategoriasSalidas"></activity>
     </application>
 
 </manifest>
