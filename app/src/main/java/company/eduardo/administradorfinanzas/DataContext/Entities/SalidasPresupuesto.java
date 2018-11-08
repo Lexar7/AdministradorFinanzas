@@ -33,6 +33,10 @@ public class SalidasPresupuesto {
         _saldo = saldo;
     }
 
+    public void setIdSalidaPresupuesto(Integer _IdSalidaPresupuesto){
+        this._idSalidaPresupuesto = _IdSalidaPresupuesto;
+    }
+
     @NonNull
     public Integer getIdSalidaPresupuesto() {
         return _idSalidaPresupuesto;

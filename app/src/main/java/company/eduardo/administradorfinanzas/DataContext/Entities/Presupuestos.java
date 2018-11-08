@@ -17,11 +17,13 @@ public class Presupuestos {
     @ColumnInfo(name = "MesPresupuesto")
     private Double _mesPresupuesto;
 
-
     public Presupuestos(@NonNull Double mesPresupuesto) {
         _mesPresupuesto = mesPresupuesto;
     }
 
+    public void set_idPresupuesto(@NonNull Integer _idPresupuesto){
+        this._idPresupuesto = _idPresupuesto;
+    }
 
     @NonNull
     public Integer get_idPresupuesto() {

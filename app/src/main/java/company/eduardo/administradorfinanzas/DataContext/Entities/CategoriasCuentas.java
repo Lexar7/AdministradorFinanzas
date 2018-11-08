@@ -17,9 +17,14 @@ public class CategoriasCuentas {
     @ColumnInfo(name = "Name")
     private String _name;
 
+    @NonNull
+    @ColumnInfo(name = "Image")
+    private String _image;
 
-    public CategoriasCuentas(@NonNull String name) {
-        _name = name;
+    public CategoriasCuentas(@NonNull String name, @NonNull String image) { _name = name; _image = image;}
+
+    public void setIdCategoria(Integer _IdCategoria){
+        this._idCategoria = _IdCategoria;
     }
 
     @NonNull
@@ -30,5 +35,10 @@ public class CategoriasCuentas {
     @NonNull
     public String getName() {
         return _name;
+    }
+
+    @NonNull
+    public String getImage() {
+        return _image;
     }
 }
