@@ -8,6 +8,7 @@ import android.arch.persistence.room.Query;
 
 import java.util.List;
 
+import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriaSalidas;
 import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriasCuentas;
 
 @Dao
@@ -15,6 +16,7 @@ public interface CategoriasCuentasDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(CategoriasCuentas categoriasCuentas);
+
 
     @Query("DELETE FROM CategoriasCuentas")
     void deleteAll();
