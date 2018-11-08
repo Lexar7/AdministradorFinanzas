@@ -7,7 +7,6 @@ import android.arch.persistence.room.TypeConverters;
 import android.support.annotation.NonNull;
 
 import java.util.Calendar;
-import java.util.Date;
 
 import company.eduardo.administradorfinanzas.DataContext.DateTypeConverter;
 

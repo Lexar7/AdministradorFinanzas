@@ -44,4 +44,24 @@ public class PresupuestosRepository {
             return null;
         }
     }
+
+    public void update(final Presupuestos presupuestos){
+        new PresupuestosRepository.updateAsyncTask(presupuestosDao).execute(presupuestos);
+
+    }
+
+    private static class updateAsyncTask extends AsyncTask<Presupuestos, Void, Void>{
+
+        private PresupuestosDao presupuestosDao;
+
+        updateAsyncTask(PresupuestosDao dao) {
+            presupuestosDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Presupuestos... params){
+            presupuestosDao.update(params[0]);
+            return null;
+        }
+    }
 }

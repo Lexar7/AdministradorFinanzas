@@ -25,4 +25,6 @@ public class EntradasViewModel extends AndroidViewModel {
 
     public void insert(Entradas entrada) { repository.insert(entrada); }
 
+    public void update(Entradas entradas){ repository.update(entradas);}
+
 }

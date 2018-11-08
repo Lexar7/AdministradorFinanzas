@@ -24,4 +24,6 @@ public class CategoriasCuentasViewModel extends AndroidViewModel {
     public LiveData<List<CategoriasCuentas>> getAll() { return listLiveData; }
 
     public void insert(CategoriasCuentas categoriasCuentas) { repository.insert(categoriasCuentas); }
+
+    public void update(CategoriasCuentas categoriasCuentas){ repository.update(categoriasCuentas);}
 }

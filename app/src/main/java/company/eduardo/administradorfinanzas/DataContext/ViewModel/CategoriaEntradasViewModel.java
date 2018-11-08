@@ -26,4 +26,5 @@ public class CategoriaEntradasViewModel  extends AndroidViewModel {
 
     public void insert(CategoriaEntradas categoriaEntradas) { repository.insert(categoriaEntradas); }
 
+    public void update(CategoriaEntradas categoriaEntradas){ repository.update(categoriaEntradas);}
 }

@@ -44,4 +44,24 @@ public class CategoriasCuentasRepository {
             return null;
         }
     }
+
+    public void update(final CategoriasCuentas categoriasCuentas){
+        new CategoriasCuentasRepository.updateAsyncTask(categoriasCuentasDao).execute(categoriasCuentas);
+
+    }
+
+    private static class updateAsyncTask extends AsyncTask<CategoriasCuentas, Void, Void>{
+
+        private CategoriasCuentasDao categoriasCuentasDao;
+
+        updateAsyncTask(CategoriasCuentasDao dao) {
+            categoriasCuentasDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final CategoriasCuentas... params){
+            categoriasCuentasDao.update(params[0]);
+            return null;
+        }
+    }
 }

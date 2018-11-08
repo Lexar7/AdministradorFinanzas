@@ -6,8 +6,10 @@ import android.os.AsyncTask;
 
 import java.util.List;
 
+import company.eduardo.administradorfinanzas.DataContext.Dao.CategoriaEntradasDao;
 import company.eduardo.administradorfinanzas.DataContext.Dao.CategoriaSalidasDao;
 import company.eduardo.administradorfinanzas.DataContext.Database;
+import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriaEntradas;
 import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriaSalidas;
 
 public class CategoriaSalidasRepository {
@@ -41,6 +43,26 @@ public class CategoriaSalidasRepository {
         @Override
         protected Void doInBackground(final CategoriaSalidas... params) {
             salidasDao.insert(params[0]);
+            return null;
+        }
+    }
+
+    public void update(final CategoriaSalidas categoriaSalidas){
+        new CategoriaSalidasRepository.updateAsyncTask(categoriaSalidasDao).execute(categoriaSalidas);
+
+    }
+
+    private static class updateAsyncTask extends AsyncTask<CategoriaSalidas, Void, Void>{
+
+        private CategoriaSalidasDao salidasDaoo;
+
+        updateAsyncTask(CategoriaSalidasDao dao) {
+            salidasDaoo = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final CategoriaSalidas... params){
+            salidasDaoo.update(params[0]);
             return null;
         }
     }

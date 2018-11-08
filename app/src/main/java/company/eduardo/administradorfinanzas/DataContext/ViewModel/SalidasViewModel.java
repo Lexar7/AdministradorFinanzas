@@ -25,4 +25,5 @@ public class SalidasViewModel extends AndroidViewModel {
 
     public void insert(Salidas salidas) { repository.insert(salidas); }
 
+    public void update(Salidas salidas){ repository.update(salidas);}
 }

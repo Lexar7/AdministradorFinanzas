@@ -44,4 +44,24 @@ public class CuentasRepository {
             return null;
         }
     }
+
+    public void update(final Cuentas cuentas){
+        new CuentasRepository.updateAsyncTask(cuentasDao).execute(cuentas);
+
+    }
+
+    private static class updateAsyncTask extends AsyncTask<Cuentas, Void, Void>{
+
+        private CuentasDao cuentasDao;
+
+        updateAsyncTask(CuentasDao dao) {
+            cuentasDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Cuentas... params){
+            cuentasDao.update(params[0]);
+            return null;
+        }
+    }
 }
