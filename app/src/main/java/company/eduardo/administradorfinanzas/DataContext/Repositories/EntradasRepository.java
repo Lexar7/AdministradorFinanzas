@@ -44,4 +44,24 @@ public class EntradasRepository {
             return null;
         }
     }
+
+    public void update(final Entradas entradas){
+        new EntradasRepository.updateAsyncTask(entradasDao).execute(entradas);
+
+    }
+
+    private static class updateAsyncTask extends AsyncTask<Entradas, Void, Void>{
+
+        private EntradasDao entradasDao;
+
+        updateAsyncTask(EntradasDao dao) {
+            entradasDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Entradas... params){
+            entradasDao.update(params[0]);
+            return null;
+        }
+    }
 }

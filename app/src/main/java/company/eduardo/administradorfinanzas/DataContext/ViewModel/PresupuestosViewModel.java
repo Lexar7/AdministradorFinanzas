@@ -25,4 +25,5 @@ public class PresupuestosViewModel extends AndroidViewModel {
 
     public void insert(Presupuestos presupuestos) { repository.insert(presupuestos); }
 
+    public void update(Presupuestos presupuestos){ repository.update(presupuestos);}
 }

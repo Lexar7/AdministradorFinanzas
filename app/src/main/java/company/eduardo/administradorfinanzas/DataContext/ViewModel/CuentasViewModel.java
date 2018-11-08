@@ -25,4 +25,5 @@ public class CuentasViewModel extends AndroidViewModel {
 
     public void insert(Cuentas cuentas) { repository.insert(cuentas); }
 
+    public void update(Cuentas cuentas){ repository.update(cuentas);}
 }
