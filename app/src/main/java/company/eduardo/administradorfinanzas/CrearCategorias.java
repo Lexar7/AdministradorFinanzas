@@ -60,6 +60,8 @@ btMostrar.setOnClickListener(new View.OnClickListener() {
                     System.out.println(note.getName());
                     System.out.println(note.getImage());
 
+
+
                 }
             }
         });
