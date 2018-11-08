@@ -8,6 +8,7 @@ import java.util.List;
 
 import company.eduardo.administradorfinanzas.DataContext.Dao.EntradasDao;
 import company.eduardo.administradorfinanzas.DataContext.Database;
+import company.eduardo.administradorfinanzas.DataContext.Entities.Cuentas;
 import company.eduardo.administradorfinanzas.DataContext.Entities.Entradas;
 
 public class EntradasRepository {
@@ -25,6 +26,9 @@ public class EntradasRepository {
         return listLiveData;
     }
 
+    public LiveData<Entradas> getOne(int Id) {
+        return entradasDao.getOne(Id);
+    }
 
     public void insert (Entradas entradas) {
         new EntradasRepository.insertAsyncTask(entradasDao).execute(entradas);
@@ -61,6 +65,34 @@ public class EntradasRepository {
         @Override
         protected Void doInBackground(final Entradas... params){
             entradasDao.update(params[0]);
+            return null;
+        }
+    }
+
+    public void delete(final Entradas entradas) {
+
+        new  EntradasRepository.deleteAsyncTask(entradasDao).execute(entradas);
+    }
+
+    public void delete(final int Id) {
+
+        final LiveData<Entradas> entradas = getOne(Id);
+        if (entradas != null) {
+            new EntradasRepository.deleteAsyncTask(entradasDao).execute(entradas.getValue());
+        }
+    }
+
+    private static class deleteAsyncTask extends AsyncTask<Entradas, Void, Void>{
+
+        private EntradasDao entradasDao;
+
+        deleteAsyncTask(EntradasDao dao) {
+            entradasDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Entradas... params){
+            entradasDao.delete(params[0]);
             return null;
         }
     }

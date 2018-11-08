@@ -23,8 +23,13 @@ public class EntradasViewModel extends AndroidViewModel {
 
     public LiveData<List<Entradas>> getAll() { return listLiveData; }
 
+    public LiveData<Entradas> getOne(int Id) { return repository.getOne(Id); }
+
     public void insert(Entradas entrada) { repository.insert(entrada); }
 
     public void update(Entradas entradas){ repository.update(entradas);}
 
+    public void delete(Entradas entradas) {repository.delete(entradas);}
+
+    public void delete(int Id) {repository.delete(Id);}
 }

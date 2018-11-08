@@ -23,7 +23,13 @@ public class SalidasViewModel extends AndroidViewModel {
 
     public LiveData<List<Salidas>> getAll() { return listLiveData; }
 
+    public LiveData<Salidas> getOne(int Id) { return repository.getOne(Id); }
+
     public void insert(Salidas salidas) { repository.insert(salidas); }
 
     public void update(Salidas salidas){ repository.update(salidas);}
+
+    public void delete(Salidas salidas) {repository.delete(salidas);}
+
+    public void delete(int Id) {repository.delete(Id);}
 }

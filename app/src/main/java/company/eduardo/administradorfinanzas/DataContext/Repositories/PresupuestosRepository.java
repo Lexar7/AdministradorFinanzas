@@ -25,6 +25,9 @@ public class PresupuestosRepository {
         return listLiveData;
     }
 
+    public LiveData<Presupuestos> getOne(int Id) {
+        return presupuestosDao.getOne(Id);
+    }
 
     public void insert (Presupuestos presupuestos) {
         new PresupuestosRepository.insertAsyncTask(presupuestosDao).execute(presupuestos);
@@ -61,6 +64,34 @@ public class PresupuestosRepository {
         @Override
         protected Void doInBackground(final Presupuestos... params){
             presupuestosDao.update(params[0]);
+            return null;
+        }
+    }
+
+    public void delete(final Presupuestos presupuestos) {
+
+        new  PresupuestosRepository.deleteAsyncTask(presupuestosDao).execute(presupuestos);
+    }
+
+    public void delete(final int Id) {
+
+        final LiveData<Presupuestos> data = getOne(Id);
+        if (data != null) {
+            new PresupuestosRepository.deleteAsyncTask(presupuestosDao).execute(data.getValue());
+        }
+    }
+
+    private static class deleteAsyncTask extends AsyncTask<Presupuestos, Void, Void>{
+
+        private PresupuestosDao presupuestosDao;
+
+        deleteAsyncTask(PresupuestosDao dao) {
+            presupuestosDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Presupuestos... params){
+            presupuestosDao.delete(params[0]);
             return null;
         }
     }

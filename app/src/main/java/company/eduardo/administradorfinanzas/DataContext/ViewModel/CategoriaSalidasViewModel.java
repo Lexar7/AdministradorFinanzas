@@ -24,7 +24,13 @@ public class CategoriaSalidasViewModel   extends AndroidViewModel {
 
     public LiveData<List<CategoriaSalidas>> getAll() { return listLiveData; }
 
+    public LiveData<CategoriaSalidas> getOne(int Id) { return repository.getOne(Id); }
+
     public void insert(CategoriaSalidas categoriaSalidas) { repository.insert(categoriaSalidas); }
 
     public void update(CategoriaSalidas categoriaSalidas){ repository.update(categoriaSalidas);}
+
+    public void delete(CategoriaSalidas categoriaSalidas) {repository.delete(categoriaSalidas);}
+
+    public void delete(int Id) {repository.delete(Id);}
 }

@@ -25,6 +25,9 @@ public class SalidasRepository {
         return listLiveData;
     }
 
+    public LiveData<Salidas> getOne(int Id) {
+        return salidasDao.getOne(Id);
+    }
 
     public void insert (Salidas salidas) {
         new SalidasRepository.insertAsyncTask(salidasDao).execute(salidas);
@@ -61,6 +64,34 @@ public class SalidasRepository {
         @Override
         protected Void doInBackground(final Salidas... params){
             salidasDao.update(params[0]);
+            return null;
+        }
+    }
+
+    public void delete(final Salidas salidas) {
+
+        new  SalidasRepository.deleteAsyncTask(salidasDao).execute(salidas);
+    }
+
+    public void delete(final int Id) {
+
+        final LiveData<Salidas> data = getOne(Id);
+        if (data != null) {
+            new SalidasRepository.deleteAsyncTask(salidasDao).execute(data.getValue());
+        }
+    }
+
+    private static class deleteAsyncTask extends AsyncTask<Salidas, Void, Void>{
+
+        private SalidasDao salidasDao;
+
+        deleteAsyncTask(SalidasDao dao) {
+            salidasDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final Salidas... params){
+            salidasDao.delete(params[0]);
             return null;
         }
     }

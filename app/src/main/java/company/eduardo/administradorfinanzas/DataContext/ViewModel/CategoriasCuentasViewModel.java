@@ -23,7 +23,13 @@ public class CategoriasCuentasViewModel extends AndroidViewModel {
 
     public LiveData<List<CategoriasCuentas>> getAll() { return listLiveData; }
 
+    public LiveData<CategoriasCuentas> getOne(int Id) { return repository.getOne(Id); }
+
     public void insert(CategoriasCuentas categoriasCuentas) { repository.insert(categoriasCuentas); }
 
     public void update(CategoriasCuentas categoriasCuentas){ repository.update(categoriasCuentas);}
+
+    public void delete(CategoriasCuentas categoriasCuentas) {repository.delete(categoriasCuentas);}
+
+    public void delete(int Id) {repository.delete(Id);}
 }
