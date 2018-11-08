@@ -2,6 +2,7 @@ package company.eduardo.administradorfinanzas.DataContext.Dao;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
@@ -19,9 +20,15 @@ public interface CuentasDao {
     @Update
     void update(Cuentas cuentas);
 
+    @Delete
+    void delete(Cuentas cuentas);
+
     @Query("DELETE FROM Cuentas")
     void deleteAll();
 
     @Query("SELECT * FROM Cuentas")
     LiveData<List<Cuentas>> getAll();
+
+    @Query("SELECT * FROM Cuentas WHERE IdCuenta =:Id")
+    LiveData<Cuentas> getOne(int Id);
 }

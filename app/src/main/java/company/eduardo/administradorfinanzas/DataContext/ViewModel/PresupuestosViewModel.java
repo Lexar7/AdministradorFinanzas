@@ -23,7 +23,13 @@ public class PresupuestosViewModel extends AndroidViewModel {
 
     public LiveData<List<Presupuestos>> getAll() { return listLiveData; }
 
+    public LiveData<Presupuestos> getOne(int Id) { return repository.getOne(Id); }
+
     public void insert(Presupuestos presupuestos) { repository.insert(presupuestos); }
 
     public void update(Presupuestos presupuestos){ repository.update(presupuestos);}
+
+    public void delete(Presupuestos presupuestos) {repository.delete(presupuestos);}
+
+    public void delete(int Id) {repository.delete(Id);}
 }

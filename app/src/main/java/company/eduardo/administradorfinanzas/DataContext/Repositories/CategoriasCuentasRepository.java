@@ -25,6 +25,9 @@ public class CategoriasCuentasRepository {
         return listLiveData;
     }
 
+    public LiveData<CategoriasCuentas> getOne(int Id) {
+        return categoriasCuentasDao.getOne(Id);
+    }
 
     public void insert (CategoriasCuentas categoriasCuentas) {
         new insertAsyncTask(categoriasCuentasDao).execute(categoriasCuentas);
@@ -61,6 +64,34 @@ public class CategoriasCuentasRepository {
         @Override
         protected Void doInBackground(final CategoriasCuentas... params){
             categoriasCuentasDao.update(params[0]);
+            return null;
+        }
+    }
+
+    public void delete(final CategoriasCuentas categoriasCuentas) {
+
+        new  CategoriasCuentasRepository.deleteAsyncTask(categoriasCuentasDao).execute(categoriasCuentas);
+    }
+
+    public void delete(final int Id) {
+
+        final LiveData<CategoriasCuentas> data = getOne(Id);
+        if (data != null) {
+            new CategoriasCuentasRepository.deleteAsyncTask(categoriasCuentasDao).execute(data.getValue());
+        }
+    }
+
+    private static class deleteAsyncTask extends AsyncTask<CategoriasCuentas, Void, Void>{
+
+        private CategoriasCuentasDao cuentasDao;
+
+        deleteAsyncTask(CategoriasCuentasDao dao) {
+            cuentasDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final CategoriasCuentas... params){
+            cuentasDao.delete(params[0]);
             return null;
         }
     }

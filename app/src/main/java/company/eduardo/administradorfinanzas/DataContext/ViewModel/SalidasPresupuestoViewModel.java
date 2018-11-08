@@ -6,6 +6,7 @@ import android.arch.lifecycle.LiveData;
 
 import java.util.List;
 
+import company.eduardo.administradorfinanzas.DataContext.Entities.Presupuestos;
 import company.eduardo.administradorfinanzas.DataContext.Entities.SalidasPresupuesto;
 import company.eduardo.administradorfinanzas.DataContext.Repositories.SalidasPresupuestoRepository;
 
@@ -23,7 +24,13 @@ public class SalidasPresupuestoViewModel extends AndroidViewModel {
 
     public LiveData<List<SalidasPresupuesto>> getAll() { return listLiveData; }
 
+    public LiveData<SalidasPresupuesto> getOne(int Id) { return repository.getOne(Id); }
+
     public void insert(SalidasPresupuesto salidasPresupuesto) { repository.insert(salidasPresupuesto); }
 
     public void update(SalidasPresupuesto salidasPresupuesto){ repository.update(salidasPresupuesto);}
+
+    public void delete(SalidasPresupuesto salidasPresupuesto) {repository.delete(salidasPresupuesto);}
+
+    public void delete(int Id) {repository.delete(Id);}
 }
