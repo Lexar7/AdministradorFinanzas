@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -59,9 +60,6 @@ btMostrar.setOnClickListener(new View.OnClickListener() {
                     System.out.println(note.getIdCategoria());
                     System.out.println(note.getName());
                     System.out.println(note.getImage());
-
-
-
                 }
             }
         });
@@ -69,9 +67,6 @@ btMostrar.setOnClickListener(new View.OnClickListener() {
     }
 
     private void mostrar(){
-
-
-
        /*
         List<CategoriasCuentas> list = notas.getValue();
         if(list.size()> 0) {
@@ -87,7 +82,8 @@ btMostrar.setOnClickListener(new View.OnClickListener() {
       String textoCategoria = etCategoria.getText().toString();
               mCategoriasCuentas = new CategoriasCuentas(textoCategoria, "@drawable/money.png");
               categoriasCuentasRepository.insert(mCategoriasCuentas);
-
+      Toast toast1 = Toast.makeText(getApplicationContext(), "Ingreso la categoria correctamente!", Toast.LENGTH_SHORT);
+      toast1.show();
           }
 
   /*  private void crear() {

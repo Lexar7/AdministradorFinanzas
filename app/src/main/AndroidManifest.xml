@@ -22,7 +22,8 @@
         <activity android:name=".CrearCategorias" />
         <activity android:name=".CrearCuentas" />
         <activity android:name=".CrearCategoriaEntradas" />
-        <activity android:name=".CrearCategoriasSalidas"></activity>
+        <activity android:name=".CrearCategoriasSalidas" />
+        <activity android:name=".CrearCuentasForm"></activity>
     </application>
 
 </manifest>

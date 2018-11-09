@@ -7,8 +7,175 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="237dp"
         android:text="Home Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:textSize="30sp" />
+
+    <TableRow
+        android:id="@+id/Cabecera"
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="56dp">
+
+        <TextView
+            android:id="@+id/ColumnaAnio"
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:padding="5px"
+            android:text="Gasto"
+            android:textAlignment="center"
+            android:textColor="@color/colorFondo"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/ColumnaCiudad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="5px"
+            android:text="Ingreso"
+            android:textAlignment="center"
+            android:textColor="@color/colorFondo"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/ColumnaOro"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:padding="5px"
+            android:text="Saldo"
+            android:textAlignment="center"
+            android:textColor="@color/colorFondo"
+            android:textSize="26sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/SeparadorCabecera"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="107dp">
+
+        <FrameLayout
+            android:id="@+id/LineaCabecera"
+            android:layout_width="fill_parent"
+            android:layout_height="2px"
+            android:layout_span="6"
+            android:background="#FFFFFF"></FrameLayout>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Fila2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/Anio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="1976"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/Cuidad2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Montreal"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/Plata2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:gravity="center"
+            android:text="2"
+            android:textSize="20sp" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Fila41"
+        android:layout_width="279dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="113dp">
+
+        <TextView
+            android:id="@+id/txtGasto"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="$10"
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtIngreso"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="$300"
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtSaldo"
+            android:layout_width="95dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="$490"
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/Fila4"
+        android:layout_width="279dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="169dp">
+
+        <TextView
+            android:id="@+id/Anio4"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Presupuesto"
+            android:textAlignment="center"
+            android:textColor="@color/colorFondo"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtPresupuesto"
+            android:layout_width="139dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="$1000.00"
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="20sp" />
+
+
+    </TableRow>
+
 
 </RelativeLayout>
