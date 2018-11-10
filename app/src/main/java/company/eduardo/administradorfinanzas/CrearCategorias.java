@@ -7,8 +7,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,19 +28,19 @@ public class CrearCategorias extends AppCompatActivity {
     private EditText etCategoria;
     private Button btGuardar, btMostrar;
     private TextView etMostrar;
+    private ListView lista;
     private CategoriasCuentas mCategoriasCuentas;
     private CategoriasCuentasRepository categoriasCuentasRepository;
-
+private ListAdapter a;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_categorias);
         categoriasCuentasRepository = new CategoriasCuentasRepository(getApplication());
         etCategoria = findViewById(R.id.txtCrearCate);
-        etMostrar= findViewById(R.id.txtMostrar);
         btGuardar = findViewById(R.id.btnCrear);
+        lista=findViewById(R.id.listViewMostrar);
         btMostrar = findViewById(R.id.btnMostrar);
-
         btGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +51,7 @@ public class CrearCategorias extends AppCompatActivity {
 btMostrar.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        mostrar();
+        mostrar1();
     }
 });
 
@@ -65,19 +68,11 @@ btMostrar.setOnClickListener(new View.OnClickListener() {
         });
 
     }
-
-    private void mostrar(){
-       /*
-        List<CategoriasCuentas> list = notas.getValue();
-        if(list.size()> 0) {
-            String mensaje ="";
-            for(int i =0; i<list.size(); i++){
-                mensaje+="\n "+list.get(i).getName();
-            }
-            etMostrar.setText(mensaje);
-        }*/
-
+    private void mostrar1() {
+        List<CategoriasCuentas> notas = (List<CategoriasCuentas>) categoriasCuentasRepository.getAll();
+            //Falta mostrarlo en un listView
     }
+
 
     private void crear() {
       String textoCategoria = etCategoria.getText().toString();
@@ -86,17 +81,5 @@ btMostrar.setOnClickListener(new View.OnClickListener() {
       Toast toast1 = Toast.makeText(getApplicationContext(), "Ingreso la categoria correctamente!", Toast.LENGTH_SHORT);
       toast1.show();
           }
-
-  /*  private void crear() {
-        String textoCategoria = etCategoria.getText().toString();
-        if (!etCategoria.equals("")) {
-            if (mCategoriasCuentas == null) {
-                mCategoriasCuentas = new CategoriasCuentas(textoCategoria, "@drawable/money");
-                DaoCategoriaCuentas.insert(mCategoriasCuentas);
-                //.addNota(mNota);
-
-            }
-        }
-    }*/
 }
 
