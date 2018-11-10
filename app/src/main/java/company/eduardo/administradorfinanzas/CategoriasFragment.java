@@ -35,7 +35,7 @@ public class CategoriasFragment extends Fragment {
         adapter.AddFragment(new CategoriaEntradaFragment(), "Entradas");
         adapter.AddFragment(new CategoriaSalidasFragment(), "Salidas");
 
-        //Adapter setup
+        //Adapter Set
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
