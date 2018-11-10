@@ -70,7 +70,7 @@ btMostrar.setOnClickListener(new View.OnClickListener() {
     }
     private void mostrar1() {
         List<CategoriasCuentas> notas = (List<CategoriasCuentas>) categoriasCuentasRepository.getAll();
-            //Falta mostrarlo en un listView
+            //Falta mostrarlo en un listView n
     }
 
 
