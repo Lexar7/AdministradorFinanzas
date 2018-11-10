@@ -83,7 +83,8 @@ btMostrar.setOnClickListener(new View.OnClickListener() {
         }*/
 
     }
-  private void crear() {
+
+    private void crear() {
       String textoCategoria = etCategoria.getText().toString();
               mCategoriasCuentas = new CategoriasCuentas(textoCategoria, "@drawable/money.png");
               categoriasCuentasRepository.insert(mCategoriasCuentas);

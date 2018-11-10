@@ -23,26 +23,27 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
-public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
+public class MainActivity extends AppCompatActivity /*implements GoogleApiClient.OnConnectionFailedListener*/{
 
-    public GoogleApiClient googleApiClient;
+    /*public GoogleApiClient googleApiClient;
 
     public ImageView photoImageView;
     public TextView nameTextView;
     public TextView emailTextView;
-    public TextView idTextView;
+    public TextView idTextView; */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final View inflatedView = getLayoutInflater().inflate(R.layout.fragment_perfil, null);
+        getSupportActionBar().hide();
+        /* final View inflatedView = getLayoutInflater().inflate(R.layout.fragment_perfil, null);
 
         photoImageView = (ImageView) inflatedView.findViewById(R.id.photoImageView);
         nameTextView = (TextView) inflatedView.findViewById(R.id.nameTextView);
         emailTextView = (TextView) inflatedView.findViewById(R.id.emailTextView);
-        idTextView = (TextView) inflatedView.findViewById(R.id.idTextView);
+        idTextView = (TextView) inflatedView.findViewById(R.id.idTextView); */
 
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();
 
+
+        /*
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         googleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
+                .build(); */
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -70,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     switch (menuItem.getItemId()){
                         case R.id.nav_home:
                             selectedFragment = new HomeFragment();
+                            break;
+                        case R.id.nav_categoria:
+                            selectedFragment = new CategoriasFragment();
                             break;
                         case R.id.nav_graficos:
                             selectedFragment = new GraficosFragment();
@@ -85,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     return true;
                 }
             };
+
+    /*
 
     @Override
     protected void onStart() {
@@ -156,4 +164,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
+    */
 }

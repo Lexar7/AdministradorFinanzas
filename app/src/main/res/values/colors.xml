@@ -9,4 +9,9 @@
     <color name="colorNav">#444444</color>
     <color name="colorNavIcons">#7C7C7C</color>
 
+    <color name="tabTextColor">#000000</color>
+    <color name="tabIndacatorColor">#339744</color>
+
+    <color name="colorBlanco">#FFFFFF</color>
+
 </resources>
