@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -60,6 +61,8 @@ public class CrearCategoriaEntradas extends AppCompatActivity {
         String textoCategoria = etCategoria.getText().toString();
         mCategoriasEntradas = new CategoriaEntradas(textoCategoria, "@drawable/money.png");
         categoriaEntradasRepository.insert(mCategoriasEntradas);
+        Toast toast1 = Toast.makeText(getApplicationContext(), "Ingreso la categoria correctamente!", Toast.LENGTH_SHORT);
+        toast1.show();
 
     }
     private void mostrar(){
