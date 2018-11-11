@@ -8,7 +8,7 @@ import android.os.Bundle;
 public class splash extends AppCompatActivity {
 
     private Boolean botonBackPresionado=false;
-    private static final int DURACION_SPLASF=3000;
+    private static final int DURACION_SPLASF=2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class splash extends AppCompatActivity {
             public void run() {
                 finish();
                 if (!botonBackPresionado){
-                    Intent intento = new Intent(splash.this, CrearCategorias.class);
+                    Intent intento = new Intent(splash.this, MainActivity.class);
                     startActivity(intento);
                 }
             }

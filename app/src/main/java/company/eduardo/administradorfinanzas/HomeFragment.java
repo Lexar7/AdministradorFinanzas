@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
                 dpd = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int nYear, int nMonth, int nDay) {
-                        
+
                         tvDate.setText(nDay + "/" + (nMonth+1) + "/" + nYear);
                     }
                 }, year, month, day);
@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), CrearCategorias.class));
+                startActivity(new Intent(getActivity(), Nuevo.class));
             }
         });
 
