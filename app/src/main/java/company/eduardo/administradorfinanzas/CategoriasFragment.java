@@ -34,7 +34,7 @@ public class CategoriasFragment extends Fragment {
         //Adding Fragments
         adapter.AddFragment(new CategoriaEntradaFragment(), "Entradas");
         adapter.AddFragment(new CategoriaSalidasFragment(), "Salidas");
-
+        adapter.AddFragment(new CategoriaCuentasFragment(), "Cuentas");
         //Adapter Set
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
