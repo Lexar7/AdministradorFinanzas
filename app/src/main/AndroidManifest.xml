@@ -24,9 +24,11 @@
         <activity android:name=".CrearCategoriaEntradas" />
         <activity android:name=".CrearCategoriasSalidas" />
         <activity android:name=".CrearCuentasForm" />
-        <activity android:name=".Nuevo"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-            ></activity>
+        <activity
+            android:name=".Nuevo"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".CrearEntradasF" />
+        <activity android:name=".CrearSalidasF"></activity>
     </application>
 
 </manifest>

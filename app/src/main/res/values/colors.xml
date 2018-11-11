@@ -12,6 +12,6 @@
     <color name="tabTextColor">#000000</color>
     <color name="tabIndacatorColor">#339744</color>
 
-    <color name="colorBlanco">#FFFFFF</color>
+    <color name="colorBlanco">#ffffff</color>
 
 </resources>

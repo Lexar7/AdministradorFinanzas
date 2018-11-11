@@ -14,18 +14,22 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="69dp"
-        android:text="Crear Cuentas"
+        android:text="CREAR CUENTA"
+        android:textColor="@color/tabIndacatorColor"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnCrear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="198dp"
+        android:layout_height="59dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="152dp"
-        android:text="Crear Cuenta" />
+        android:layout_marginBottom="141dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="Crear Cuenta"
+        android:textColor="@color/colorBlanco"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView7"
