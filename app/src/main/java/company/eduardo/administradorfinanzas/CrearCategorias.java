@@ -39,12 +39,13 @@ private ListAdapter a;
         categoriasCuentasRepository = new CategoriasCuentasRepository(getApplication());
         etCategoria = findViewById(R.id.txtCrearCate);
         btGuardar = findViewById(R.id.btnCrear);
-        lista=findViewById(R.id.listViewMostrar);
+       // lista=findViewById(R.id.listViewMostrar);
         btMostrar = findViewById(R.id.btnMostrar);
         btGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 crear();
+                etCategoria.setText("");
             }
         });
 

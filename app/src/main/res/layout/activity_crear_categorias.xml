@@ -7,56 +7,78 @@
     android:layout_height="match_parent"
     tools:context=".CrearCategorias">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="81dp"
+        android:layout_height="96dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="54dp"
-        android:text="Crear Categoria Cuentas"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="250dp"
+        app:srcCompat="@drawable/bancou" />
 
     <EditText
         android:id="@+id/txtCrearCate"
-        android:layout_width="wrap_content"
+        android:layout_width="205dp"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnMostrar"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="134dp"
+        android:layout_marginTop="161dp"
+        android:layout_marginEnd="-24dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nombre" />
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btnCrear"
-        android:layout_width="wrap_content"
+        android:layout_width="109dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="230dp"
-        android:text="Crear" />
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="233dp"
+        android:backgroundTint="@color/tabIndacatorColor"
+        android:text="Crear"
+        android:textColor="@color/colorBlanco"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnMostrar"
-        android:layout_width="wrap_content"
+        android:layout_width="109dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/btnCrear"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="82dp"
-        android:text="Mostrar" />
+        android:layout_marginEnd="65dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Mostrar"
+        android:textColor="@color/colorBlanco"
+        android:textStyle="bold" />
 
-    <ListView
-        android:id="@+id/listViewMostrar"
-        android:layout_width="318dp"
-        android:layout_height="218dp"
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtCrearCate"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginBottom="39dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="12dp"
+        android:text="Categoria"
+        android:textColor="@color/tabIndacatorColor"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtCrearCate"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="84dp"
+        android:text="CUENTAS"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

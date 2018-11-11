@@ -14,7 +14,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="54dp"
-        android:text="Crear Categoria Salidas"
+        android:text="SALIDAS"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -23,39 +24,58 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="134dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="155dp"
+        android:layout_marginEnd="37dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nombre" />
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btnCrear"
-        android:layout_width="wrap_content"
+        android:layout_width="117dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="69dp"
+        android:layout_marginStart="59dp"
         android:layout_marginTop="237dp"
-        android:text="Crear" />
-
-    <TextView
-        android:id="@+id/txtMostrar"
-        android:layout_width="248dp"
-        android:layout_height="193dp"
-        android:layout_alignStart="@+id/txtCrearCate"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="-6dp"
-        android:layout_marginBottom="67dp"
-        android:text="TextView" />
+        android:backgroundTint="@color/tabIndacatorColor"
+        android:text="Crear"
+        android:textColor="@color/colorBlanco"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnMostrar"
-        android:layout_width="wrap_content"
+        android:layout_width="111dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/btnCrear"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="82dp"
-        android:text="Mostrar" />
+        android:layout_marginEnd="60dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Mostrar"
+        android:textColor="@color/colorBlanco"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="166dp"
+        android:text="Caategoria"
+        android:textColor="@color/tabIndacatorColor"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="95dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignEnd="@+id/btnMostrar"
+        android:layout_marginTop="-57dp"
+        android:layout_marginEnd="192dp"
+        app:srcCompat="@drawable/levantar" />
 </RelativeLayout>

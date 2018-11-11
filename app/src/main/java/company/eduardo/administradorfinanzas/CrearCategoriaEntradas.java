@@ -26,7 +26,7 @@ public class CrearCategoriaEntradas extends AppCompatActivity {
         setContentView(R.layout.activity_crear_categoria_entradas);
         categoriaEntradasRepository = new CategoriaEntradasRepository(getApplication());
         etCategoria = findViewById(R.id.txtCrearCate);
-        etMostrar= findViewById(R.id.txtMostrar);
+        etMostrar= findViewById(R.id.txtCrearCate);
         btGuardar = findViewById(R.id.btnCrear);
         btMostrar = findViewById(R.id.btnMostrar);
 
@@ -34,6 +34,7 @@ public class CrearCategoriaEntradas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 crear();
+                etCategoria.setText("");
             }
         });
 

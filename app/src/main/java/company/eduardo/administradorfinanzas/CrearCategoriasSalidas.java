@@ -29,7 +29,7 @@ public class CrearCategoriasSalidas extends AppCompatActivity {
         setContentView(R.layout.activity_crear_categorias_salidas);
         categoriaSalidasRepository = new CategoriaSalidasRepository(getApplication());
         etCategoria = findViewById(R.id.txtCrearCate);
-        etMostrar= findViewById(R.id.txtMostrar);
+        etMostrar= findViewById(R.id.txtCrearCate);
         btGuardar = findViewById(R.id.btnCrear);
         btMostrar = findViewById(R.id.btnMostrar);
 
@@ -37,6 +37,7 @@ public class CrearCategoriasSalidas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 crear();
+                etCategoria.setText("");
             }
         });
 
