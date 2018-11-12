@@ -15,7 +15,9 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
@@ -51,7 +53,10 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onDateSet(DatePicker datePicker, int nYear, int nMonth, int nDay) {
 
-                        tvDate.setText(nDay + "/" + (nMonth+1) + "/" + nYear);
+                        SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy");
+                        calendar.set(nYear, nMonth, nDay);
+                        String dateString = sdf.format(calendar.getTime());
+                        tvDate.setText(dateString);
                     }
                 }, year, month, day);
                 dpd.show();

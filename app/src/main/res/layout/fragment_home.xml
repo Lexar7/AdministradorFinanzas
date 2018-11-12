@@ -58,7 +58,8 @@
                     android:text="100"
                     android:textColor="@color/tabTextColor"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:id="@+id/txtGastos"/>
 
             </LinearLayout>
 
@@ -85,7 +86,8 @@
                     android:text="0"
                     android:textColor="@color/tabTextColor"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:id="@+id/txtIngresos"/>
 
             </LinearLayout>
 
@@ -110,7 +112,8 @@
                     android:text="360"
                     android:textColor="@color/tabTextColor"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:id="@+id/txtSaldo"/>
 
             </LinearLayout>
         </LinearLayout>
