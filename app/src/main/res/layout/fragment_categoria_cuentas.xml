@@ -18,6 +18,7 @@
         android:layout_alignParentBottom="true"
         android:text="Nueva Categoria Cuenta"
         android:textColor="@color/colorBlanco"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/colorPrimary"
+        android:id="@+id/btnNuevo"/>
 
 </RelativeLayout>
