@@ -27,6 +27,10 @@ public class EntradasRepository {
         return listLiveData;
     }
 
+    public LiveData<List<Entradas>> getAll(Calendar calendar, Calendar calendar2) {
+        return entradasDao.getAll(calendar, calendar2);
+    }
+
     public LiveData<List<Entradas>> getAll(Calendar calendar, Calendar calendar2, int Id) {
         return entradasDao.getAll(calendar, calendar2, Id);
     }
