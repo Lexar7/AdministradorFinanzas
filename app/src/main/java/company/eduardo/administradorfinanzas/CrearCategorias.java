@@ -39,7 +39,8 @@ private ListAdapter a;
         categoriasCuentasRepository = new CategoriasCuentasRepository(getApplication());
         etCategoria = findViewById(R.id.txtCrearCate);
         btGuardar = findViewById(R.id.btnCrear);
-       // lista=findViewById(R.id.listViewMostrar);
+       lista=findViewById(R.id.listav);
+ //      mostrar1();
         btMostrar = findViewById(R.id.btnMostrar);
         btGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,17 +71,23 @@ btMostrar.setOnClickListener(new View.OnClickListener() {
 
     }
     private void mostrar1() {
-        List<CategoriasCuentas> notas = (List<CategoriasCuentas>) categoriasCuentasRepository.getAll();
+        List<CategoriasCuentas> notas = (List<CategoriasCuentas>) categoriasCuentasRepository.getAll().getValue();
+      AdapterCat adapter = new AdapterCat(this, notas);
+      lista.setAdapter(adapter);
             //Falta mostrarlo en un listView n
     }
 
 
     private void crear() {
-      String textoCategoria = etCategoria.getText().toString();
-              mCategoriasCuentas = new CategoriasCuentas(textoCategoria, "@drawable/money.png");
-              categoriasCuentasRepository.insert(mCategoriasCuentas);
-      Toast toast1 = Toast.makeText(getApplicationContext(), "Ingreso la categoria correctamente!", Toast.LENGTH_SHORT);
-      toast1.show();
+        if (etCategoria.getText().toString().trim().equalsIgnoreCase(""))
+            etCategoria.setError("Ingrese una categoria");
+        else {
+            String textoCategoria = etCategoria.getText().toString();
+            mCategoriasCuentas = new CategoriasCuentas(textoCategoria, "@drawable/money.png");
+            categoriasCuentasRepository.insert(mCategoriasCuentas);
+            Toast toast1 = Toast.makeText(getApplicationContext(), "Ingreso la categoria correctamente!", Toast.LENGTH_SHORT);
+            toast1.show();
+        }
           }
 }
 

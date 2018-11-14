@@ -1,5 +1,6 @@
 package company.eduardo.administradorfinanzas;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,11 +14,18 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriasCuentas;
+import company.eduardo.administradorfinanzas.DataContext.Repositories.CategoriasCuentasRepository;
 
 public class CategoriaCuentasFragment extends Fragment {
 
-    View view;
 
+    View view;
+    private ListView lista;
+    private CategoriasCuentas mCategoriasCuentas;
+    private CategoriasCuentasRepository categoriasCuentasRepository;
     private ListView lv1;
 
     Button btnNew;
@@ -34,10 +42,11 @@ public class CategoriaCuentasFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_categoria_cuentas, container, false);
-
         btnNew = (Button)view.findViewById(R.id.btnNuevo);
-
         lv1 = (ListView)view.findViewById(R.id.lv);
+        categoriasCuentasRepository = new CategoriasCuentasRepository(this.getActivity().getApplication());
+        mostrar1();
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_categorias, categorias);
         lv1.setAdapter(adapter);
 
@@ -50,5 +59,9 @@ public class CategoriaCuentasFragment extends Fragment {
         });
 
         return view;
+    }
+    private void mostrar1() {
+        //con esta linea se recupera el Array de los datos de la base, se almacena en la Variable NOTAS
+        List<CategoriasCuentas> notas = (List<CategoriasCuentas>) categoriasCuentasRepository.getAll().getValue();
     }
 }
