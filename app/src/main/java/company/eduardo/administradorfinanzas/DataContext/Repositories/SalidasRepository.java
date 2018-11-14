@@ -26,8 +26,8 @@ public class SalidasRepository {
         return listLiveData;
     }
 
-    public LiveData<List<Salidas>> getAll(Calendar calendar, int Id) {
-        return salidasDao.getAll(calendar, Id);
+    public LiveData<List<Salidas>> getAll(Calendar calendar, Calendar calendar2, int Id) {
+        return salidasDao.getAll(calendar, calendar2, Id);
     }
 
     public LiveData<Salidas> getOne(int Id) {

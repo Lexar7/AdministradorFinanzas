@@ -24,7 +24,7 @@ public class SalidasViewModel extends AndroidViewModel {
 
     public LiveData<List<Salidas>> getAll() { return listLiveData; }
 
-    public LiveData<List<Salidas>> getAll(Calendar calendar, int Id) { return repository.getAll(calendar,Id); }
+    public LiveData<List<Salidas>> getAll(Calendar calendar, Calendar calendar2, int Id) { return repository.getAll(calendar, calendar2,Id); }
 
     public LiveData<Salidas> getOne(int Id) { return repository.getOne(Id); }
 
