@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 
+import java.util.Calendar;
 import java.util.List;
 
 import company.eduardo.administradorfinanzas.DataContext.Entities.Salidas;
@@ -22,6 +23,8 @@ public class SalidasViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Salidas>> getAll() { return listLiveData; }
+
+    public LiveData<List<Salidas>> getAll(Calendar calendar, int Id) { return repository.getAll(calendar,Id); }
 
     public LiveData<Salidas> getOne(int Id) { return repository.getOne(Id); }
 

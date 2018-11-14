@@ -5,10 +5,13 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.TypeConverters;
 import android.arch.persistence.room.Update;
 
+import java.util.Calendar;
 import java.util.List;
 
+import company.eduardo.administradorfinanzas.DataContext.DateTypeConverter;
 import company.eduardo.administradorfinanzas.DataContext.Entities.Entradas;
 
 @Dao
@@ -29,6 +32,9 @@ public interface EntradasDao {
     @Query("SELECT * FROM Entradas")
     LiveData<List<Entradas>> getAll();
 
-    @Query("SELECT * FROM Entradas WHERE IdEntrada =:Id")
+    @Query("SELECT * FROM Entradas WHERE (Fecha-:calendar)==0 AND IdCuenta==:Id")
+    LiveData<List<Entradas>> getAll(Calendar calendar, int Id);
+
+    @Query("SELECT * FROM Entradas WHERE IdEntrada ==:Id")
     LiveData<Entradas> getOne(int Id);
 }
