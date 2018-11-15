@@ -7,6 +7,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
+import java.util.Calendar;
 import java.util.List;
 
 import company.eduardo.administradorfinanzas.DataContext.Entities.Salidas;
@@ -29,6 +30,12 @@ public interface SalidasDao {
     @Query("SELECT * FROM Salidas")
     LiveData<List<Salidas>> getAll();
 
-    @Query("SELECT * FROM Salidas WHERE IdSalidas =:Id")
+    @Query("SELECT * FROM Salidas WHERE Fecha BETWEEN :cal1 AND :cal2")
+    LiveData<List<Salidas>> getAll(Calendar cal1, Calendar cal2);
+
+    @Query("SELECT * FROM Salidas WHERE Fecha BETWEEN :cal1 AND :cal2 and IdCuenta==:Id")
+    LiveData<List<Salidas>> getAll(Calendar cal1, Calendar cal2, int Id);
+
+    @Query("SELECT * FROM Salidas WHERE IdSalidas ==:Id")
     LiveData<Salidas> getOne(int Id);
 }

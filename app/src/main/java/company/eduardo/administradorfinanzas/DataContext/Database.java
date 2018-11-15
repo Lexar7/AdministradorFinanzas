@@ -2,6 +2,7 @@ package company.eduardo.administradorfinanzas.DataContext;
 
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 
 
@@ -22,7 +23,8 @@ import company.eduardo.administradorfinanzas.DataContext.Entities.Presupuestos;
 import company.eduardo.administradorfinanzas.DataContext.Entities.Salidas;
 import company.eduardo.administradorfinanzas.DataContext.Entities.SalidasPresupuesto;
 
-@android.arch.persistence.room.Database(entities = {CategoriaEntradas.class, CategoriaSalidas.class, CategoriasCuentas.class, Cuentas.class, Entradas.class, Presupuestos.class, Salidas.class, SalidasPresupuesto.class}, version = 1)
+@android.arch.persistence.room.Database(entities = {CategoriaEntradas.class, CategoriaSalidas.class, CategoriasCuentas.class, Cuentas.class, Entradas.class, Presupuestos.class, Salidas.class, SalidasPresupuesto.class}, version = 2)
+@TypeConverters({DateTypeConverter.class})
 public abstract class Database extends RoomDatabase {
 
     public abstract CategoriasCuentasDao categoriasCuentasDao();

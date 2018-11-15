@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
+import java.util.Calendar;
 import java.util.List;
 
 import company.eduardo.administradorfinanzas.DataContext.Dao.EntradasDao;
@@ -24,6 +25,14 @@ public class EntradasRepository {
 
     public LiveData<List<Entradas>> getAll() {
         return listLiveData;
+    }
+
+    public LiveData<List<Entradas>> getAll(Calendar calendar, Calendar calendar2) {
+        return entradasDao.getAll(calendar, calendar2);
+    }
+
+    public LiveData<List<Entradas>> getAll(Calendar calendar, Calendar calendar2, int Id) {
+        return entradasDao.getAll(calendar, calendar2, Id);
     }
 
     public LiveData<Entradas> getOne(int Id) {

@@ -29,6 +29,6 @@ public interface SalidasPresupuestoDao {
     @Query("SELECT * FROM SalidasPresupuesto")
     LiveData<List<SalidasPresupuesto>> getAll();
 
-    @Query("SELECT * FROM SalidasPresupuesto WHERE IdSalidaPresupuesto =:Id")
+    @Query("SELECT * FROM SalidasPresupuesto WHERE IdSalidaPresupuesto ==:Id")
     LiveData<SalidasPresupuesto> getOne(int Id);
 }
