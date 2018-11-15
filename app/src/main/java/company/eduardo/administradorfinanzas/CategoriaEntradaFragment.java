@@ -1,5 +1,7 @@
 package company.eduardo.administradorfinanzas;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,6 +13,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
+import java.util.List;
+
+import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriaEntradas;
+import company.eduardo.administradorfinanzas.DataContext.ViewModel.CategoriaEntradasViewModel;
 
 public class CategoriaEntradaFragment extends Fragment {
 
@@ -37,7 +44,7 @@ public class CategoriaEntradaFragment extends Fragment {
         btnNew = (Button)view.findViewById(R.id.btnNuevo);
 
         lv1 = (ListView)view.findViewById(R.id.lv);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_categorias, categorias);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.list_item_categorias, categorias);
         lv1.setAdapter(adapter);
 
         btnNew.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +54,15 @@ public class CategoriaEntradaFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+       /* CategoriaEntradasViewModel mViewModel = ViewModelProviders.of(this).get(CategoriaEntradasViewModel.class);
+        mViewModel.getAll().observe(this, new Observer<List<CategoriaEntradas>>() {
+            @Override
+            public void onChanged(@Nullable List<CategoriaEntradas> categoriaEntradas) {
+                adapter = new R.layout.listcategoria(getActivity(), categoriaEntradas);
+                lv1.setAdapter(adapter);
+            }
+        });*/
 
         return view;
     }

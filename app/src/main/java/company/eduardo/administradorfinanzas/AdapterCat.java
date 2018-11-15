@@ -15,8 +15,10 @@ import java.util.List;
 import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriasCuentas;
 
 public class AdapterCat extends BaseAdapter {
-    protected Activity activity;
-    protected List<CategoriasCuentas> items;
+
+     Activity activity;
+     List<CategoriasCuentas> items;
+
      public AdapterCat (Activity activity, List<CategoriasCuentas> items){
          this.activity=activity;
          this.items=items;
@@ -24,35 +26,36 @@ public class AdapterCat extends BaseAdapter {
      }
 
      @Override
-    public int getCount(){
+     public int getCount(){
          return items.size();
      }
+
      public void clear(){
          items.clear();
      }
+
      public void addAll(ArrayList<CategoriasCuentas> category){
          for (int i =0; i<category.size(); i++){
              items.add(category.get(i));
          }
-
-
      }
+
     @Override
     public Object getItem(int id){
         return items.get(id);
     }
+
     @Override
     public long getItemId(int id){
         return (id);
     }
+
     @Override
     public View getView(int id, View view, ViewGroup parent){
         View v = view;
-        if(view== null){
+        if(v != null){
             LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v=inf.inflate(R.layout.listcategoria,null);
-
-
         }
         CategoriasCuentas dir= items.get(id);
         TextView texto= v.findViewById(R.id.txtCate);

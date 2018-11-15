@@ -50,12 +50,13 @@ private ListAdapter a;
             }
         });
 
-btMostrar.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        mostrar1();
-    }
-});
+
+        btMostrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            mostrar1();
+            }
+        });
 
         categoriasCuentasRepository.getAll().observe(this, new Observer<List<CategoriasCuentas>>() {
             @Override
