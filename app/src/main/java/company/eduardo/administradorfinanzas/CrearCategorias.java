@@ -1,13 +1,10 @@
 package company.eduardo.administradorfinanzas;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -17,11 +14,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import company.eduardo.administradorfinanzas.DataContext.Dao.CategoriasCuentasDao;
-import company.eduardo.administradorfinanzas.DataContext.Database;
+import company.eduardo.administradorfinanzas.Adapters.AdapterCat;
 import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriasCuentas;
 import company.eduardo.administradorfinanzas.DataContext.Repositories.CategoriasCuentasRepository;
-import company.eduardo.administradorfinanzas.DataContext.ViewModel.CategoriasCuentasViewModel;
 
 
 public class CrearCategorias extends AppCompatActivity {

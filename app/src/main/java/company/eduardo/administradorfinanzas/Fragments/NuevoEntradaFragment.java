@@ -1,4 +1,4 @@
-package company.eduardo.administradorfinanzas;
+package company.eduardo.administradorfinanzas.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class NuevoCuentasFragment extends Fragment {
+import company.eduardo.administradorfinanzas.CrearEntradasF;
+import company.eduardo.administradorfinanzas.R;
+
+public class NuevoEntradaFragment extends Fragment {
 
     View view;
     FloatingActionButton fab;
-    public NuevoCuentasFragment(){
+
+    public NuevoEntradaFragment(){
 
     }
 
@@ -22,12 +26,12 @@ public class NuevoCuentasFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_nuevo_cuentas, container, false);
+        view = inflater.inflate(R.layout.fragment_nuevo_entradas, container, false);
         fab = (FloatingActionButton)view.findViewById(R.id.fab_btn2);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), CrearCuentas.class));
+                startActivity(new Intent(getActivity(), CrearEntradasF.class));
             }
         });
         return view;

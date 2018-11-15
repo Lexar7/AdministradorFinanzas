@@ -1,4 +1,4 @@
-package company.eduardo.administradorfinanzas;
+package company.eduardo.administradorfinanzas.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +24,8 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import company.eduardo.administradorfinanzas.R;
+
 public class PerfilFragment extends Fragment {
 
     private ImageView photoImageView;
@@ -38,7 +40,9 @@ public class PerfilFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Defines the xml file for the fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        return view;
         // View view =  inflater.inflate(R.layout.fragment_perfil, container, false);
 
 

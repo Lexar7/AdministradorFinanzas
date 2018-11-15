@@ -1,4 +1,4 @@
-package company.eduardo.administradorfinanzas;
+package company.eduardo.administradorfinanzas.Fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+
+import company.eduardo.administradorfinanzas.R;
 
 public class GraficosSalidasFragment extends Fragment {
 

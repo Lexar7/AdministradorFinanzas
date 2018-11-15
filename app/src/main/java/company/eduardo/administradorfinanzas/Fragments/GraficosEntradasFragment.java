@@ -1,4 +1,4 @@
-package company.eduardo.administradorfinanzas;
+package company.eduardo.administradorfinanzas.Fragments;
 
 import android.graphics.Color;
 import android.media.audiofx.AudioEffect;
@@ -19,6 +19,8 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+
+import company.eduardo.administradorfinanzas.R;
 
 public class GraficosEntradasFragment extends Fragment {
 

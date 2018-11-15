@@ -1,6 +1,5 @@
-package company.eduardo.administradorfinanzas;
+package company.eduardo.administradorfinanzas.Fragments;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,17 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
+import company.eduardo.administradorfinanzas.R;
+import company.eduardo.administradorfinanzas.Adapters.ViewPagerAdapter;
 
-import java.util.ArrayList;
-
-public class GraficosFragment extends Fragment {
-
+public class CategoriasFragment extends Fragment {
 
     private TabLayout tabLayout;
     private AppBarLayout appBarLayout;
@@ -31,21 +23,22 @@ public class GraficosFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_graficos, container, false);
+
+
+        View view =  inflater.inflate(R.layout.fragment_categorias, container, false);
+        //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout_id);
         //appBarLayout = (AppBarLayout) view.findViewById(R.id.i);
         viewPager = (ViewPager) view.findViewById(R.id.viewpaper_id);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         //Adding Fragments
-        adapter.AddFragment(new GraficosEntradasFragment(), "Entradas");
-        adapter.AddFragment(new GraficosSalidasFragment(), "Salidas");
-        adapter.AddFragment(new GraficosCuentasFragment(), "Cuentas");
+        adapter.AddFragment(new CategoriaEntradaFragment(), "Entradas");
+        adapter.AddFragment(new CategoriaSalidasFragment(), "Salidas");
+        adapter.AddFragment(new CategoriaCuentasFragment(), "Cuentas");
         //Adapter Set
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-
-
 
         return view;
     }

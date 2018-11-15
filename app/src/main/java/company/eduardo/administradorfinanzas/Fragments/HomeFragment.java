@@ -1,4 +1,4 @@
-package company.eduardo.administradorfinanzas;
+package company.eduardo.administradorfinanzas.Fragments;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -18,6 +18,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
+import company.eduardo.administradorfinanzas.Nuevo;
+import company.eduardo.administradorfinanzas.R;
 
 public class HomeFragment extends Fragment {
 

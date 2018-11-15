@@ -1,6 +1,5 @@
-package company.eduardo.administradorfinanzas;
+package company.eduardo.administradorfinanzas.Fragments;
 
-import android.app.Application;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -17,14 +16,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriaEntradas;
+import company.eduardo.administradorfinanzas.Adapters.AdapterCat;
+import company.eduardo.administradorfinanzas.Adapters.CategoriaCuentaListAdapter;
+import company.eduardo.administradorfinanzas.CrearCategorias;
 import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriasCuentas;
 import company.eduardo.administradorfinanzas.DataContext.Repositories.CategoriasCuentasRepository;
-import company.eduardo.administradorfinanzas.DataContext.ViewModel.CategoriaEntradasViewModel;
 import company.eduardo.administradorfinanzas.DataContext.ViewModel.CategoriasCuentasViewModel;
+import company.eduardo.administradorfinanzas.R;
 
 public class CategoriaCuentasFragment extends Fragment {
 
@@ -56,9 +56,9 @@ public class CategoriaCuentasFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_categoria_cuentas, container, false);
         btnNew = (Button)view.findViewById(R.id.btnNuevo);
-        lv1 = (ListView)view.findViewById(R.id.lv);
 
 
+        // Define the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         final CategoriaCuentaListAdapter adapter = new CategoriaCuentaListAdapter(getActivity());
         recyclerView.setAdapter(adapter);
@@ -73,10 +73,6 @@ public class CategoriaCuentasFragment extends Fragment {
                 adapter.setCategoria(categoriasCuentas);
             }
         });
-
-        //adapter = new ArrayAdapter(getActivity(), R.layout.list_item_categorias, categoriasCuentas);
-        //lv1.setAdapter(adapter);
-
 
         btnNew.setOnClickListener(new View.OnClickListener() {
             @Override

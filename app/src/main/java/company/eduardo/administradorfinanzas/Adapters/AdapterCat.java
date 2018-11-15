@@ -1,4 +1,4 @@
-package company.eduardo.administradorfinanzas;
+package company.eduardo.administradorfinanzas.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriasCuentas;
+import company.eduardo.administradorfinanzas.R;
 
 public class AdapterCat extends BaseAdapter {
 

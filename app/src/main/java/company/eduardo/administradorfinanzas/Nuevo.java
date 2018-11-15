@@ -8,7 +8,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.MenuItem;
-import android.view.View;
+
+import company.eduardo.administradorfinanzas.Adapters.ViewPagerAdapter;
+import company.eduardo.administradorfinanzas.Fragments.NuevoCuentasFragment;
+import company.eduardo.administradorfinanzas.Fragments.NuevoEntradaFragment;
+import company.eduardo.administradorfinanzas.Fragments.NuevoSalidasFragment;
 
 public class Nuevo extends AppCompatActivity {
 

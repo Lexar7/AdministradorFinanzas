@@ -1,4 +1,4 @@
-package company.eduardo.administradorfinanzas;
+package company.eduardo.administradorfinanzas.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,30 +6,31 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.Collections;
 import java.util.List;
 
+import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriaEntradas;
 import company.eduardo.administradorfinanzas.DataContext.Entities.CategoriasCuentas;
+import company.eduardo.administradorfinanzas.R;
 
-public class CategoriaCuentaListAdapter extends RecyclerView.Adapter<CategoriaCuentaListAdapter.ViewHolder>{
+public class CategoriaEntradaListAdapter extends RecyclerView.Adapter<CategoriaEntradaListAdapter.ViewHolder>{
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        private final TextView categoriaItemView;
+        public final TextView categoriaItemView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             categoriaItemView = itemView.findViewById(R.id.textView);
         }
     }
 
-    private final LayoutInflater mInflater;
-    private List<CategoriasCuentas> mCuentas = Collections.emptyList();
+    public final LayoutInflater mInflater;
+    public List<CategoriaEntradas> mEntradas = Collections.emptyList();
 
-    CategoriaCuentaListAdapter(Context context){
+    public CategoriaEntradaListAdapter(Context context){
         mInflater = LayoutInflater.from(context);
     }
 
@@ -42,18 +43,18 @@ public class CategoriaCuentaListAdapter extends RecyclerView.Adapter<CategoriaCu
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CategoriasCuentas current = mCuentas.get(position);
+        CategoriaEntradas current = mEntradas.get(position);
         holder.categoriaItemView.setText(current.getName());
     }
 
-    void setCategoria(List<CategoriasCuentas> categorias) {
-        mCuentas = categorias;
+    public void setCategoria(List<CategoriaEntradas> categorias) {
+        mEntradas = categorias;
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return mCuentas.size();
+        return mEntradas.size();
     }
 
 
