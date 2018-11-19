@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CrearEntradas">
+    android:layout_height="match_parent">
 
 
     <android.support.design.widget.FloatingActionButton
@@ -39,13 +38,14 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <ListView
-        android:layout_width="273dp"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
         android:layout_height="270dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="164dp" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="154dp" />
 
     <ImageView
         android:id="@+id/imageView2"
