@@ -17,13 +17,34 @@ import company.eduardo.administradorfinanzas.R;
 
 public class EntradasAdapter extends RecyclerView.Adapter<EntradasAdapter.ViewHolder> {
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public ActionCallback mActionCallbacks;
+
+    //Interface for callbacks
+    public interface ActionCallback {
+        void onLongClickListener(Entradas entradas);
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
 
         public final TextView entradasItemView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            itemView.setOnLongClickListener(this);
             entradasItemView = itemView.findViewById(R.id.textView);
         }
+
+        @Override
+        public boolean onLongClick(View view) {
+            if (mActionCallbacks != null) {
+                mActionCallbacks.onLongClickListener(mEntradas.get(getAdapterPosition()));
+            }
+            return true;
+        }
+    }
+
+    public void addActionCallback(ActionCallback actionCallbacks) {
+        mActionCallbacks = actionCallbacks;
     }
 
     public final LayoutInflater mInflater;

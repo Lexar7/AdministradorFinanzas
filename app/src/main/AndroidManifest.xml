@@ -28,7 +28,8 @@
             android:name=".Nuevo"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".CrearEntradasF" />
-        <activity android:name=".CrearSalidasF"></activity>
+        <activity android:name=".CrearSalidasF" />
+        <activity android:name=".UpdateEntradaActivity"></activity>
     </application>
 
 </manifest>
