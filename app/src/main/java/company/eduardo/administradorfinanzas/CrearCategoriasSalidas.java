@@ -31,7 +31,6 @@ public class CrearCategoriasSalidas extends AppCompatActivity {
         etCategoria = findViewById(R.id.txtCrearCate);
         etMostrar= findViewById(R.id.txtCrearCate);
         btGuardar = findViewById(R.id.btnCrear);
-        btMostrar = findViewById(R.id.btnMostrar);
 
         btGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,12 +40,6 @@ public class CrearCategoriasSalidas extends AppCompatActivity {
             }
         });
 
-        btMostrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mostrar();
-            }
-        });
 //Verificar si  insertó en la BD
         categoriaSalidasRepository.getAll().observe(this, new Observer<List<CategoriaSalidas>>() {
             @Override

@@ -36,7 +36,6 @@ private ListAdapter a;
         btGuardar = findViewById(R.id.btnCrear);
        lista=findViewById(R.id.listav);
  //      mostrar1();
-        btMostrar = findViewById(R.id.btnMostrar);
 
 
         btGuardar.setOnClickListener(new View.OnClickListener() {
@@ -48,12 +47,6 @@ private ListAdapter a;
         });
 
 
-        btMostrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            mostrar1();
-            }
-        });
 
         categoriasCuentasRepository.getAll().observe(this, new Observer<List<CategoriasCuentas>>() {
             @Override
