@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import company.eduardo.administradorfinanzas.DataContext.Entities.Salidas;
+import company.eduardo.administradorfinanzas.Models.InformacionGrafico;
 
 @Dao
 public interface SalidasDao {
@@ -38,4 +39,9 @@ public interface SalidasDao {
 
     @Query("SELECT * FROM Salidas WHERE IdSalidas ==:Id")
     LiveData<Salidas> getOne(int Id);
+
+    @Query("SELECT Salidas.IdCategoria as 'Id', Name as 'Descripcion', SUM(Saldo) as 'Cantidad' FROM Salidas " +
+            "INNER JOIN CategoriaSalidas ON Salidas.IdCategoria = CategoriaSalidas.IdCategoria" +
+            " WHERE IdCuenta=:Id")
+    LiveData<List<InformacionGrafico>> getGraphic(int Id);
 }

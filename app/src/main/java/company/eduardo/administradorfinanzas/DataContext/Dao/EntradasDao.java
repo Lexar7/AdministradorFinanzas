@@ -13,6 +13,7 @@ import java.util.List;
 
 import company.eduardo.administradorfinanzas.DataContext.DateTypeConverter;
 import company.eduardo.administradorfinanzas.DataContext.Entities.Entradas;
+import company.eduardo.administradorfinanzas.Models.InformacionGrafico;
 
 @Dao
 public interface EntradasDao {
@@ -40,4 +41,10 @@ public interface EntradasDao {
 
     @Query("SELECT * FROM Entradas WHERE IdEntrada ==:Id")
     LiveData<Entradas> getOne(int Id);
+
+    @Query("SELECT Entradas.IdCategoria as 'Id', Name as 'Descripcion', SUM(Saldo) as 'Cantidad' FROM Entradas " +
+            "INNER JOIN CategoriaEntradas ON Entradas.IdCategoria = CategoriaEntradas.IdCategoria " +
+            "WHERE IdCuenta=:Id")
+    LiveData<List<InformacionGrafico>> getGraphic(int Id);
+
 }

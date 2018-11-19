@@ -9,6 +9,7 @@ import java.util.List;
 
 import company.eduardo.administradorfinanzas.DataContext.Entities.Salidas;
 import company.eduardo.administradorfinanzas.DataContext.Repositories.SalidasRepository;
+import company.eduardo.administradorfinanzas.Models.InformacionGrafico;
 
 public class SalidasViewModel extends AndroidViewModel {
 
@@ -27,6 +28,10 @@ public class SalidasViewModel extends AndroidViewModel {
     public LiveData<List<Salidas>> getAll(Calendar calendar, Calendar calendar2) { return repository.getAll(calendar, calendar2); }
 
     public LiveData<List<Salidas>> getAll(Calendar calendar, Calendar calendar2, int Id) { return repository.getAll(calendar, calendar2,Id); }
+
+    public LiveData<List<InformacionGrafico>> getGraphic(int Id){
+        return repository.getGraphic(Id);
+    }
 
     public LiveData<Salidas> getOne(int Id) { return repository.getOne(Id); }
 

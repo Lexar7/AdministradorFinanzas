@@ -11,6 +11,7 @@ import company.eduardo.administradorfinanzas.DataContext.Dao.EntradasDao;
 import company.eduardo.administradorfinanzas.DataContext.Database;
 import company.eduardo.administradorfinanzas.DataContext.Entities.Cuentas;
 import company.eduardo.administradorfinanzas.DataContext.Entities.Entradas;
+import company.eduardo.administradorfinanzas.Models.InformacionGrafico;
 
 public class EntradasRepository {
 
@@ -33,6 +34,10 @@ public class EntradasRepository {
 
     public LiveData<List<Entradas>> getAll(Calendar calendar, Calendar calendar2, int Id) {
         return entradasDao.getAll(calendar, calendar2, Id);
+    }
+
+    public LiveData<List<InformacionGrafico>> getGraphic(int Id){
+        return entradasDao.getGraphic(Id);
     }
 
     public LiveData<Entradas> getOne(int Id) {
