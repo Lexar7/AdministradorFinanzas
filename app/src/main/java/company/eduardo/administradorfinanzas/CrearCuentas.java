@@ -84,7 +84,11 @@ public class CrearCuentas extends AppCompatActivity {
                 dpd= new DatePickerDialog(ctx, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
-                        etFecha.setText(mDay+"/"+(mMonth+1)+"/"+mYear);
+                        //etFecha.setText(mDay+"/"+(mMonth+1)+"/"+mYear);
+                        SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy");
+                        c.set(mYear, mMonth, mDay);
+                        String dateString = sdf.format(c.getTime());
+                        etFecha.setText(dateString);
                     }
                 }, year, month, day);
                 dpd.show();

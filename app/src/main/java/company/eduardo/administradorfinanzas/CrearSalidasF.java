@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -72,7 +73,6 @@ public class CrearSalidasF extends AppCompatActivity {
         btnCalendario= (Button) findViewById(R.id.btnFecha);
         btnCrear = findViewById(R.id.btnCrear);
 
-
         btnCalendario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,9 +83,12 @@ public class CrearSalidasF extends AppCompatActivity {
                 dpd= new DatePickerDialog(ctx, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int mYear, int mMonth, int mDay) {
-                        etFecha.setText(mDay+"/"+(mMonth+1)+"/"+mYear);
+                        //etFecha.setText(mDay+"/"+(mMonth+1)+"/"+mYear);
+                        SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy");
+                        c.set(mYear, mMonth, mDay);
+                        String dateString = sdf.format(c.getTime());
+                        etFecha.setText(dateString);
                     }
-
                 }, year, month, day);
                 dpd.show();
             }

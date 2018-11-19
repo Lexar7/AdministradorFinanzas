@@ -31,6 +31,9 @@ public interface SalidasDao {
     @Query("SELECT * FROM Salidas")
     LiveData<List<Salidas>> getAll();
 
+    @Query("SELECT * FROM Salidas WHERE Fecha <= :cal1")
+    LiveData<List<Salidas>> getAll(Calendar cal1);
+
     @Query("SELECT * FROM Salidas WHERE Fecha BETWEEN :cal1 AND :cal2")
     LiveData<List<Salidas>> getAll(Calendar cal1, Calendar cal2);
 
