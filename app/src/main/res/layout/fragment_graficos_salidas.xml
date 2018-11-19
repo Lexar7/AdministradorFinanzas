@@ -4,10 +4,19 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <com.github.mikephil.charting.charts.BarChart
+    <Spinner
+        android:id="@+id/spinnerCS"
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginBottom="2dp" />
+
+    <com.github.mikephil.charting.charts.PieChart
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/barChart"></com.github.mikephil.charting.charts.BarChart>
+        android:id="@+id/pieChartS"></com.github.mikephil.charting.charts.PieChart>
 
 
 </RelativeLayout>

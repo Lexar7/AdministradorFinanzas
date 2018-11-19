@@ -9,6 +9,7 @@ import java.util.List;
 import company.eduardo.administradorfinanzas.DataContext.Dao.CuentasDao;
 import company.eduardo.administradorfinanzas.DataContext.Database;
 import company.eduardo.administradorfinanzas.DataContext.Entities.Cuentas;
+import company.eduardo.administradorfinanzas.Models.InformacionGrafico;
 
 public class CuentasRepository {
 
@@ -23,6 +24,10 @@ public class CuentasRepository {
 
     public LiveData<List<Cuentas>> getAll() {
         return listLiveData;
+    }
+
+    public LiveData<List<InformacionGrafico>> getGraphic(int Id){
+        return cuentasDao.getGraphic(Id);
     }
 
     public LiveData<Cuentas> getOne(int Id) {

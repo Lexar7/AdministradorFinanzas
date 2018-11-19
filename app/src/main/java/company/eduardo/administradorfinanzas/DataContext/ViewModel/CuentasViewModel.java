@@ -8,6 +8,7 @@ import java.util.List;
 
 import company.eduardo.administradorfinanzas.DataContext.Entities.Cuentas;
 import company.eduardo.administradorfinanzas.DataContext.Repositories.CuentasRepository;
+import company.eduardo.administradorfinanzas.Models.InformacionGrafico;
 
 public class CuentasViewModel extends AndroidViewModel {
 
@@ -22,6 +23,8 @@ public class CuentasViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Cuentas>> getAll() { return listLiveData; }
+
+    public LiveData<List<InformacionGrafico>> getGraphic(int Id){ return repository.getGraphic(Id); }
 
     public LiveData<Cuentas> getOne(int Id) { return repository.getOne(Id); }
 

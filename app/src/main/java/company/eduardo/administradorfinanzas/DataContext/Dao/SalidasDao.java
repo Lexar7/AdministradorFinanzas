@@ -45,6 +45,6 @@ public interface SalidasDao {
 
     @Query("SELECT Salidas.IdCategoria as 'Id', Name as 'Descripcion', SUM(Saldo) as 'Cantidad' FROM Salidas " +
             "INNER JOIN CategoriaSalidas ON Salidas.IdCategoria = CategoriaSalidas.IdCategoria" +
-            " WHERE IdCuenta=:Id")
+            " WHERE IdCuenta=:Id GROUP BY Salidas.IdCategoria, Name")
     LiveData<List<InformacionGrafico>> getGraphic(int Id);
 }

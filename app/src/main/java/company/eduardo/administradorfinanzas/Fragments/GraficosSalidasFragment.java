@@ -1,5 +1,7 @@
 package company.eduardo.administradorfinanzas.Fragments;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,15 +10,30 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import company.eduardo.administradorfinanzas.DataContext.Entities.Cuentas;
+import company.eduardo.administradorfinanzas.DataContext.Entities.Salidas;
+import company.eduardo.administradorfinanzas.DataContext.ViewModel.CuentasViewModel;
+import company.eduardo.administradorfinanzas.DataContext.ViewModel.SalidasViewModel;
+import company.eduardo.administradorfinanzas.Models.InformacionGrafico;
 import company.eduardo.administradorfinanzas.R;
 
 public class GraficosSalidasFragment extends Fragment {
@@ -25,6 +42,13 @@ public class GraficosSalidasFragment extends Fragment {
 
     private BarChart barChart;
 
+    PieChart pieChart;
+    private SalidasViewModel viewModel;
+    Spinner spinner;
+    private CuentasViewModel viewModel1;
+    List<Cuentas> cuentas1;
+
+    ArrayList<PieEntry> yValues;
     public GraficosSalidasFragment(){
 
     }
@@ -35,31 +59,100 @@ public class GraficosSalidasFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_graficos_salidas, container, false);
 
-        barChart = (BarChart)view.findViewById(R.id.barChart);
-        barChart.getDescription().setEnabled(false);
+        pieChart = (PieChart) view.findViewById(R.id.pieChartS);
 
-        setData(10);
-        barChart.setFitBars(true);
+        spinner = view.findViewById(R.id.spinnerCS);
+        viewModel1 = ViewModelProviders.of( this).get(CuentasViewModel.class);
+        viewModel1.getAll().observe(this, new Observer<List<Cuentas>>() {
+
+            @Override
+
+            public void onChanged(@Nullable List<Cuentas> Cuentas) {
+
+                List<String> cuentas = new ArrayList<>();
+
+                for (Cuentas cuentas1: Cuentas){
+
+                    cuentas.add(cuentas1.getNombreCuenta() );
+
+                }
+
+                if(Cuentas!= null){
+                    cuentas1 = Cuentas;
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, cuentas);
+
+                //ArrayAdapter<String> adapter = new ArrayAdapter<>(ctx, android.R.layout.simple_spinner_item, categoriasCuentas.stream().map(c -> c.getName()).toArray());
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                spinner.setAdapter(adapter);
+
+            }
+
+        });
+
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                setData(spinner.getSelectedItemPosition());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
         return view;
     }
 
     private void setData(int count){
-        ArrayList<BarEntry> yVals = new ArrayList<>();
+        pieChart.setUsePercentValues(true);
+        pieChart.getDescription().setEnabled(true);
+        pieChart.setExtraOffsets(5, 10, 5, 5);
 
-        for (int i = 0; i < count; i++){
-            float value = (float)(Math.random()*100);
-            yVals.add(new BarEntry(i, (int) value));
-        }
+        pieChart.setDragDecelerationFrictionCoef(0.99f);
 
-        BarDataSet set = new BarDataSet(yVals, "Gastos");
-        set.setColors(ColorTemplate.MATERIAL_COLORS);
-        set.setDrawValues(true);
+        pieChart.setDrawHoleEnabled(true);
+        pieChart.setHoleColor(Color.WHITE);
+        pieChart.setTransparentCircleRadius(61f);
 
-        BarData data = new BarData(set);
+        int f = cuentas1.get(count).getIdCuenta();
+        viewModel = ViewModelProviders.of(this).get(SalidasViewModel.class);
+        viewModel.getGraphic(f).observe(this, new Observer<List<InformacionGrafico>>() {
+            @Override
+            public void onChanged(@Nullable List<InformacionGrafico> informacionGraficos) {
+                if(informacionGraficos!=null && !(yValues!=null)){
+                    yValues = new ArrayList<>();
+                }else if(informacionGraficos!=null && yValues.size()>0){
+                    yValues.clear();
+                }
+                for (InformacionGrafico informacionGrafico:informacionGraficos){
+                    yValues.add(new PieEntry(informacionGrafico.getCantidad().floatValue(), informacionGrafico.getDescripcion()));
+                }
 
-        barChart.setData(data);
-        barChart.invalidate();
-        barChart.animateY(500);
+                Description description = new Description();
+                description.setText("Salidas");
+                description.setTextSize(30);
+                pieChart.setDescription(description);
+
+                // animar grafico
+                pieChart.animateY(1000, Easing.EasingOption.EaseInOutCubic);
+
+
+                PieDataSet dataSet = new PieDataSet(yValues, "Categorias");
+                dataSet.setSliceSpace(3f);
+                dataSet.setSelectionShift(5f);
+                dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+
+                PieData data = new PieData((dataSet));
+                data.setValueTextSize(10f);
+                data.setValueTextColor(Color.YELLOW);
+
+                pieChart.setData(data);
+            }
+        });
     }
 }
