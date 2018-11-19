@@ -26,6 +26,7 @@ import company.eduardo.administradorfinanzas.DataContext.ViewModel.CuentasViewMo
 import company.eduardo.administradorfinanzas.DataContext.ViewModel.EntradasViewModel;
 import company.eduardo.administradorfinanzas.DataContext.ViewModel.SalidasViewModel;
 import company.eduardo.administradorfinanzas.R;
+import company.eduardo.administradorfinanzas.UpdateEntradaActivity;
 
 public class NuevoEntradaFragment extends Fragment {
 
@@ -57,11 +58,23 @@ public class NuevoEntradaFragment extends Fragment {
                 adapter.setCategoria(entradas);
             }
         });
+
+
         fab = (FloatingActionButton)view.findViewById(R.id.fab_btn2);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), CrearEntradasF.class));
+            }
+        });
+
+        adapter.addActionCallback(new EntradasAdapter.ActionCallback() {
+            @Override
+            public void onLongClickListener(Entradas entradas) {
+                Intent intent = new Intent(getActivity(), UpdateEntradaActivity.class);
+
+                intent.putExtra(UpdateEntradaActivity.EXTRA_ENTRADA_ID,  entradas.getIdEntrada());
+                startActivity(intent);
             }
         });
         return view;
