@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.facebook.stetho.Stetho;
+
 import company.eduardo.administradorfinanzas.Fragments.CategoriasFragment;
 import company.eduardo.administradorfinanzas.Fragments.GraficosFragment;
 import company.eduardo.administradorfinanzas.Fragments.HomeFragment;
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity /*implements GoogleApiClient
         setContentView(R.layout.activity_main);
 
         getSupportActionBar().hide();
+        Stetho.initialize(Stetho.newInitializerBuilder(this)
+                .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                .build());
         /* final View inflatedView = getLayoutInflater().inflate(R.layout.fragment_perfil, null);
 
         photoImageView = (ImageView) inflatedView.findViewById(R.id.photoImageView);
