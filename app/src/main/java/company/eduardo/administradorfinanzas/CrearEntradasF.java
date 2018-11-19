@@ -167,7 +167,7 @@ public class CrearEntradasF extends AppCompatActivity {
                     String nombre = etNombre.getText().toString();
                     Double saldo = Double.parseDouble(etSaldo.getText().toString());
                     int idCa = categoriaEntradas1.get(idCat).getIdCategoria();
-                    int idCuent= cuentas1.get(idCu).getIdCategoria();
+                    int idCuent= cuentas1.get(idCu).getIdCuenta();
                     Entradas entradas = new Entradas(nombre,saldo,c,idCa,idCuent);
                     viewModel2.insert(entradas);
                     Toast.makeText(getApplicationContext(),"Entrada agregada exitosamente.",Toast.LENGTH_SHORT).show();

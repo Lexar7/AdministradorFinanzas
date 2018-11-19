@@ -169,7 +169,7 @@ public class CrearSalidasF extends AppCompatActivity {
                     String nombre = etNombre.getText().toString();
                     Double saldo = Double.parseDouble(etSaldo.getText().toString());
                     int idCa = categoriaSalidas1.get(idCat).getIdCategoria();
-                    int idCuent= cuentas1.get(idCu).getIdCategoria();
+                    int idCuent= cuentas1.get(idCu).getIdCuenta();
                     Salidas salidas = new Salidas(nombre,saldo,c,idCa, idCuent);
                     viewModel2.insert(salidas);
                     Toast.makeText(getApplicationContext(),"Entrada agregada exitosamente.",Toast.LENGTH_SHORT).show();
