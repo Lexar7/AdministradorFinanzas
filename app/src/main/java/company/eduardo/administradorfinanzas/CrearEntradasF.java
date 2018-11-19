@@ -8,6 +8,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -31,6 +33,7 @@ import company.eduardo.administradorfinanzas.DataContext.ViewModel.CuentasViewMo
 import company.eduardo.administradorfinanzas.DataContext.ViewModel.EntradasViewModel;
 
 public class CrearEntradasF extends AppCompatActivity {
+
     private Button btnCalendario, btnCrear;
     private EditText etNombre, etSaldo;
     private TextView etFecha;
@@ -42,15 +45,32 @@ public class CrearEntradasF extends AppCompatActivity {
     Spinner spinner, spinner1;
     List<CategoriaEntradas> categoriaEntradas1;
     List<Cuentas> cuentas1;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_entradas_f);
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#FFFFFF'>"+"Nueva Entrada"+"</font>"));
+        getSupportActionBar().setElevation(0);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         final Context ctx = this;
         etNombre= findViewById(R.id.editText);
         etSaldo= findViewById(R.id.editText4);
         etFecha = (TextView) findViewById(R.id.txtFecha);
         btnCalendario= (Button) findViewById(R.id.btnFecha);
+        btnCrear = findViewById(R.id.btnCrear);
+
         btnCalendario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,9 +84,8 @@ public class CrearEntradasF extends AppCompatActivity {
                         etFecha.setText(mDay+"/"+(mMonth+1)+"/"+mYear);
                     }
 
-                },day,month,year);
+                }, year, month, day);
                 dpd.show();
-
             }
         });
 
@@ -134,7 +153,7 @@ public class CrearEntradasF extends AppCompatActivity {
 
         });
 
-        btnCrear = findViewById(R.id.btnCrear);
+
         btnCrear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,12 +167,14 @@ public class CrearEntradasF extends AppCompatActivity {
                     Entradas entradas = new Entradas(nombre,saldo,c,idCa,idCuent);
                     viewModel2.insert(entradas);
                     Toast.makeText(getApplicationContext(),"Entrada agregada exitosamente.",Toast.LENGTH_SHORT).show();
+                    finish();
                 }catch(Exception e){
                     System.out.print(e.getMessage().toString());
                     Toast.makeText(getApplicationContext(),"Ha ocurrido un error.",Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
+
+
     }
 }

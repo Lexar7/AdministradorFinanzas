@@ -37,6 +37,8 @@ private ListAdapter a;
        lista=findViewById(R.id.listav);
  //      mostrar1();
         btMostrar = findViewById(R.id.btnMostrar);
+
+
         btGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +85,7 @@ private ListAdapter a;
             categoriasCuentasRepository.insert(mCategoriasCuentas);
             Toast toast1 = Toast.makeText(getApplicationContext(), "Ingreso la categoria correctamente!", Toast.LENGTH_SHORT);
             toast1.show();
-        }
-          }
+            }
+    }
 }
 
